@@ -1,5 +1,5 @@
 const express = require("express");
-// const apiRoutes = require("./routes/apiRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 // const htmlRoutes = require("./routes/htmlRoutes");
 
 //const fs = require("fs");
@@ -15,23 +15,8 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(express.static("Develop/public"));
 
-//app.use("/api", apiRoutes);
+app.use("/api", apiRoutes);
 //app.use("/", htmlRoutes);
-
-// need three api routes
-app.get("/api/notes", (req, res) => {
-  res.send("you want to GET api notes");
-});
-
-app.post("/api/notes", (req, res) => {
-  res.send("you want to POST api notes");
-});
-
-app.delete("/api/notes/:id", (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  res.send("you want to DELETE note " + id);
-});
 
 // need three html routes
 app.get("/", (req, res) => {
