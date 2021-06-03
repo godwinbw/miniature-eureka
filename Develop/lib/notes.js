@@ -62,13 +62,30 @@ function addNote(noteToAdd) {
   };
 
   dbMemory.push(newNote); // add note to the in-memory database
-  saveNotesFromMemoryToFile(); // write the save memory database to file
+  saveNotesFromMemoryToFile(); // write the  in-memory database to file
 
   return newNote;
+}
+
+function deleteNote(idToDelete) {
+  // filter the in-memory database to remove the id
+  var newDbMemory = dbMemory.filter((note) => {
+    if (note.id === idToDelete) {
+      // this note id matches the delete id, so filter it out
+      return false;
+    } else {
+      // this note id doesn't match the delete id, so keep it
+      return true;
+    }
+  });
+
+  dbMemory = newDbMemory; // replace the in-memory database with our new, filtered database
+  saveNotesFromMemoryToFile(); // write the in-memory database to file
 }
 
 module.exports = {
   loadNotesIntoMemoryFromFile,
   getAllNotes,
   addNote,
+  deleteNote,
 };

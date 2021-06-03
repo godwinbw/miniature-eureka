@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { getAllNotes, addNote } = require("../../lib/notes.js");
+const { getAllNotes, addNote, deleteNote } = require("../../lib/notes.js");
 
 // need three api routes
 router.get("/notes", (req, res) => {
@@ -7,15 +7,13 @@ router.get("/notes", (req, res) => {
 });
 
 router.post("/notes", (req, res) => {
-  //res.send("you want to POST api notes");
-  //const noteToAdd = req.body;
   res.send(addNote(req.body));
 });
 
 router.delete("/notes/:id", (req, res) => {
   const { id } = req.params;
   console.log(id);
-  res.send("you want to DELETE note " + id);
+  res.send(deleteNote(id));
 });
 
 module.exports = router;
