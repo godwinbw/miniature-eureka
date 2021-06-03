@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { nanoid } = require("nanoid");
 
 const dbFile = path.join(__dirname, "../db/db-test.json");
 var dbMemory;
@@ -41,9 +42,33 @@ function getAllNotes() {
   return dbMemory;
 }
 
-function addNote() {}
+function addNote(noteToAdd) {
+  // note is an object with structer
+  // note.title = title of the note
+  // note.text = text of the note
+  //
+  // we need to generate a unique id for this note
+  const uniqueId = nanoid();
+  console.log("...adding note");
+  console.log("     id => " + uniqueId);
+  console.log("     title => " + noteToAdd.title);
+  console.log("     text  => " + noteToAdd.text);
+
+  // create a new note
+  const newNote = {
+    id: uniqueId,
+    title: noteToAdd.title,
+    text: noteToAdd.text,
+  };
+
+  dbMemory.push(newNote); // add note to the in-memory database
+  saveNotesFromMemoryToFile(); // write the save memory database to file
+
+  return newNote;
+}
 
 module.exports = {
   loadNotesIntoMemoryFromFile,
   getAllNotes,
+  addNote,
 };
