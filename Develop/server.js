@@ -4,6 +4,7 @@ const htmlRoutes = require("./routes/htmlRoutes");
 
 //const fs = require("fs");
 // const path = require("path");
+const { loadNotesIntoMemoryFromFile } = require("./lib/notes.js");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,6 +18,9 @@ app.use(express.static("Develop/public"));
 
 app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
+
+// load notes database into memory
+loadNotesIntoMemoryFromFile();
 
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);

@@ -1,8 +1,9 @@
 const router = require("express").Router();
+const { getAllNotes } = require("../../lib/notes.js");
 
 // need three api routes
 router.get("/notes", (req, res) => {
-  res.send("you want to GET api notes");
+  res.send(getAllNotes());
 });
 
 router.post("/notes", (req, res) => {
