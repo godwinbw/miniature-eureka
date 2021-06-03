@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { nanoid } = require("nanoid");
 
-const dbFile = path.join(__dirname, "../db/db-test.json");
+const dbFile = path.join(__dirname, "../db/db.json");
 var dbMemory;
 
 function loadNotesIntoMemoryFromFile() {
