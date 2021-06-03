@@ -22,7 +22,7 @@
         WHEN I click on the link to the notes page
         THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
 
-3.  Use can edit existing notes
+3.  Use can add a new notes
 
         WHEN I enter a new note title and the note’s text
         THEN a Save icon appears in the navigation at the top of the page
@@ -42,16 +42,20 @@
         WHEN I click on the Write icon in the navigation at the top of the page
         THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
-### **Challenge Ten - code repository**
+### **Installation Notes**
 
-<https://github.com/godwinbw/team-profile-generator>
+Because the code for this challenge is in the "Develop" subdirectory, a different command is needed to deploy the application to Heroku.
 
-### **Challenge Ten - html output file**
+        git subtree push --prefix Develop heroku main
 
-<https://godwinbw.github.io/team-profile-generator/>
+### **Challenge 11 - code repository**
 
-### **Challenge Ten - screenshot**
+<https://github.com/godwinbw/miniature-eureka>
+
+### **Challenge 11 - screenshot**
 
 <img src="./screenshot.png" style="width: 50%; height=auto;">
 
-heroku link -> https://agile-woodland-34956.herokuapp.com/
+### **Challenge 11 - link to app**
+
+<https://sheltered-woodland-78685.herokuapp.com/>
